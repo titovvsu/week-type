@@ -9,6 +9,7 @@ import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.Month
 import android.view.View
+import java.time.temporal.ChronoUnit
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         val endDate = LocalDate.now()
         val startDate = LocalDate.of(endDate.year, Month.SEPTEMBER, 1).with(DayOfWeek.MONDAY)
-        val weeksDiff = 5
+        val weeksDiff = ChronoUnit.WEEKS.between(startDate, endDate).toInt()
         val weekType: String = if (weeksDiff % 2 == 0) {
             "Числитель"
         } else {
